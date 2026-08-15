@@ -1,397 +1,223 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IJEER | International Journal of Educational Excellence and Research</title>
-<meta name="description" content="International Journal of Educational Excellence and Research (IJEER)">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="International Journal of Educational Excellence and Research — open-access research advancing education.">
+  <meta name="theme-color" content="#17364b">
+  <title>IJEER — International Journal of Educational Excellence and Research</title>
+  <style>
+    :root {
+      --ink:#173247; --muted:#667b88; --navy:#17364b; --navy-2:#31576d;
+      --steel:#5d7f94; --silver:#bccbd4; --silver-2:#e3eaee;
+      --paper:#f3f6f7; --white:#fcfdfe; --line:rgba(23,50,71,.15);
+      --serif:Georgia,"Times New Roman",serif;
+      --sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --shadow:0 18px 55px rgba(12,39,55,.14);
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);-webkit-font-smoothing:antialiased} body.modal-open{overflow:hidden} a{color:inherit;text-decoration:none} button{font:inherit} img{display:block;max-width:100%} :focus-visible{outline:3px solid var(--silver);outline-offset:4px}.container{width:min(1160px,calc(100% - 44px));margin-inline:auto}
 
-<style>
-:root{
-  --paper:#f8fafb;
-  --white:#ffffff;
-  --ink:#142332;
-  --muted:#667889;
-  --metal:#5e7f98;
-  --metal-dark:#35566f;
-  --metal-deep:#203f57;
-  --metal-soft:#e9f0f4;
-  --line:#d9e2e8;
-}
+    /* Header */
+    .site-header{position:relative;z-index:30;color:#fff;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.14)}
+    .header-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .brand{min-width:0;display:flex;align-items:center;gap:12px}.brand-logo{width:46px;aspect-ratio:1;flex:0 0 auto;object-fit:cover;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.42),0 4px 14px rgba(0,0,0,.14)}.brand-copy strong{display:block;max-width:480px;font:600 15px/1.12 var(--serif)}.brand-copy span{display:block;margin-top:4px;color:rgba(226,235,240,.65);font-size:9px;letter-spacing:.09em;text-transform:uppercase}
+    .primary-nav{display:flex;align-items:center;gap:23px;font-size:11px;font-weight:750}.nav-group{position:relative}.nav-group summary{list-style:none;cursor:pointer;padding:29px 0}.nav-group summary::-webkit-details-marker{display:none}.nav-group summary::after{content:"⌄";margin-left:6px;color:var(--silver)}.nav-group[open] summary,.nav-action:hover{color:var(--silver)}.nav-action{padding:29px 0;border:0;color:inherit;background:transparent;cursor:pointer;font-weight:inherit}.nav-cta{padding:11px 17px!important;color:var(--navy)!important;background:linear-gradient(135deg,#f1f4f6,#acbdc8);border-radius:100px}
+    .dropdown{position:absolute;top:66px;left:-18px;width:220px;padding:10px;background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow)}.dropdown button{width:100%;padding:10px;border:0;color:var(--ink);background:transparent;text-align:left;font-size:11px;cursor:pointer}.dropdown button:hover{background:var(--silver-2)}
+    .menu-button{display:none;width:42px;height:42px;flex:0 0 auto;border:1px solid rgba(255,255,255,.35);color:#fff;background:transparent;border-radius:50%;cursor:pointer}.menu-button span,.menu-button::before,.menu-button::after{content:"";display:block;width:17px;height:1px;margin:5px auto;background:currentColor}
 
-*{box-sizing:border-box}
+    /* Compact home */
+    .hero{position:relative;min-height:360px;color:#fff;overflow:hidden;background:linear-gradient(130deg,#102a3b,var(--navy) 58%,var(--navy-2))}.hero::before{content:"";position:absolute;width:450px;height:450px;right:-95px;top:-210px;border:1px solid rgba(220,232,239,.13);border-radius:50%;box-shadow:0 0 0 62px rgba(209,222,230,.035),0 0 0 124px rgba(209,222,230,.02)}.hero-grid{position:relative;min-height:360px;padding:34px 0;display:grid;grid-template-columns:minmax(0,1.25fr) 205px;align-items:center;gap:76px}.eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 11px;color:var(--silver);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.eyebrow::before{content:"";width:24px;height:2px;background:currentColor}.hero h1{max-width:700px;margin:0;font:400 clamp(42px,4.6vw,62px)/.95 var(--serif);letter-spacing:-.045em}.hero h1 em{color:var(--silver);font-style:italic}.hero-text{max-width:650px;margin:16px 0 0;color:rgba(230,237,241,.76);font-size:13.5px;line-height:1.6}.hero-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}.button{min-height:40px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:0 16px;border:1px solid rgba(226,235,240,.3);border-radius:100px;color:#fff;background:transparent;font-size:10.5px;font-weight:850;cursor:pointer;transition:.2s ease}.button:hover{transform:translateY(-2px);background:rgba(255,255,255,.06)}.button-primary{color:var(--navy);background:linear-gradient(135deg,#f1f4f6,#acbdc8);border-color:var(--silver)}
+    .cover{position:relative;padding:11px;background:var(--white);box-shadow:var(--shadow)}.cover::after{content:"";position:absolute;inset:6px;border:1px solid var(--line);pointer-events:none}.cover img{width:100%;aspect-ratio:1;object-fit:cover}.cover-meta{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:9px 3px 2px;border-top:1px solid var(--line);color:var(--muted);font-size:8px;line-height:1.35}.cover-meta strong{display:block;color:var(--ink);font-size:9px}
+    .facts{background:linear-gradient(90deg,#aebfc9,#e1e8ec 50%,#aebfc9)}.facts-grid{display:grid;grid-template-columns:repeat(4,1fr)}.fact{min-height:65px;padding:13px 22px;border-left:1px solid rgba(23,54,75,.18)}.fact:last-child{border-right:1px solid rgba(23,54,75,.18)}.fact strong{display:block;font:500 16px/1.1 var(--serif)}.fact span{display:block;margin-top:5px;color:rgba(23,54,75,.68);font-size:8px;font-weight:850;letter-spacing:.05em;text-transform:uppercase}
+    .gateway{padding:28px 0}.gateway-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:54px;align-items:center}.section-label{margin:0 0 8px;color:var(--steel);font-size:8.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.gateway h2{max-width:420px;margin:0;font:400 clamp(28px,3vw,40px)/1.02 var(--serif);letter-spacing:-.035em}.gateway-copy>p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}.gateway-links{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}.gateway-card{min-height:70px;padding:12px;border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.52);text-align:left;cursor:pointer}.gateway-card:hover{background:var(--white);box-shadow:0 10px 30px rgba(23,50,71,.08)}.gateway-card strong{display:block;margin-bottom:5px;font:500 14px/1.1 var(--serif)}.gateway-card span{color:var(--muted);font-size:9px;line-height:1.4}
 
-html,body{
-  margin:0;
-  background:var(--paper);
-  color:var(--ink);
-  font-family:Inter,Arial,Helvetica,sans-serif;
-}
+    /* Footer */
+    footer{color:rgba(230,237,241,.7);background:#09262c}.footer-main{padding:30px 0 20px;display:grid;grid-template-columns:1.35fr repeat(3,.7fr);gap:48px}.footer-brand{display:flex;align-items:center;gap:12px;color:#fff;font:600 14px/1.08 var(--serif)}.footer-brand .brand-logo{width:42px}.footer-intro p{max-width:350px;margin:17px 0 0;color:rgba(218,229,235,.62);font-size:10px;line-height:1.6}.footer-column h3{margin:0 0 16px;color:var(--silver);font-size:8px;letter-spacing:.14em;text-transform:uppercase}.footer-column button,.footer-column a{display:block;width:max-content;max-width:100%;margin:0 0 10px;padding:0;border:0;color:inherit;background:transparent;font-size:10px;cursor:pointer}.footer-column button:hover,.footer-column a:hover{color:var(--silver)}.footer-bottom{min-height:50px;display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid rgba(220,231,237,.13);color:rgba(218,229,235,.46);font-size:9px}
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
+    /* Content panels */
+    dialog{width:min(850px,calc(100% - 32px));max-height:min(760px,calc(100vh - 34px));padding:0;border:0;color:var(--ink);background:var(--white);box-shadow:0 28px 90px rgba(4,23,35,.35)}dialog::backdrop{background:rgba(7,31,43,.7);backdrop-filter:blur(5px)}.panel-head{position:sticky;top:0;z-index:2;display:flex;align-items:flex-start;justify-content:space-between;gap:30px;padding:28px 32px 22px;color:#fff;background:linear-gradient(120deg,var(--navy),var(--navy-2))}.panel-kicker{margin:0 0 7px;color:var(--silver);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.panel-head h2{margin:0;font:400 clamp(30px,4vw,44px)/1 var(--serif)}.close-button{width:38px;height:38px;flex:0 0 auto;border:1px solid rgba(255,255,255,.35);color:#fff;background:transparent;border-radius:50%;font-size:23px;line-height:1;cursor:pointer}.panel-body{padding:30px 32px 38px;color:var(--muted);font-size:13px;line-height:1.65}.panel-body h3{margin:28px 0 10px;color:var(--ink);font:500 22px/1.15 var(--serif)}.panel-body h3:first-child{margin-top:0}.panel-body h4{margin:22px 0 8px;color:var(--ink);font-size:13px}.panel-body p{margin:0 0 15px}.panel-body ul,.panel-body ol{margin:8px 0 18px;padding-left:22px}.panel-body strong{color:var(--ink)}.panel-body a{color:var(--steel);text-decoration:underline}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}.info-box{padding:17px;border:1px solid var(--line);background:var(--paper)}.info-box strong{display:block;margin-bottom:5px;font:500 17px/1.1 var(--serif)}.contact-card{padding:20px;border-left:3px solid var(--steel);background:var(--silver-2)}
 
-.shell{
-  width:min(1180px,calc(100% - 42px));
-  margin:0 auto;
-}
+    @media(max-width:900px){.primary-nav{display:none}.menu-button{display:block}.primary-nav.open{position:absolute;top:78px;right:0;left:0;display:flex;padding:17px 22px 22px;flex-direction:column;align-items:stretch;gap:0;background:var(--navy);box-shadow:var(--shadow)}.nav-group summary,.nav-action{width:100%;padding:12px 0;text-align:left;border-bottom:1px solid rgba(255,255,255,.12)}.nav-cta{margin-top:10px;text-align:center}.dropdown{position:static;width:100%;margin-top:2px;box-shadow:none}.hero-grid{grid-template-columns:1fr 190px;gap:38px}.gateway-grid{gap:30px}.footer-main{gap:28px}}
+    @media(max-width:620px){.container{width:min(100% - 30px,1160px)}.brand-copy strong{max-width:190px;overflow:hidden;font-size:12px}.brand-copy span{display:none}.hero-grid{padding:30px 0;grid-template-columns:1fr;gap:28px}.hero h1{font-size:clamp(40px,12vw,54px)}.hero-actions{display:grid}.cover{width:min(230px,76%);justify-self:center}.facts-grid{grid-template-columns:1fr 1fr}.fact{min-height:62px;border-bottom:1px solid rgba(23,54,75,.18)}.gateway-grid{grid-template-columns:1fr;gap:18px}.gateway-links{grid-template-columns:1fr}.footer-main{grid-template-columns:1fr 1fr;gap:28px 20px}.footer-intro{grid-column:1/-1}.footer-bottom{padding:14px 0;align-items:flex-start;flex-direction:column;justify-content:center}.panel-head,.panel-body{padding-left:21px;padding-right:21px}.info-grid{grid-template-columns:1fr}}
+    /* Refined title scale */
+    .hero h1{max-width:650px;font-size:clamp(38px,3.8vw,52px);line-height:.98;letter-spacing:-.04em}
+    @media(max-width:620px){.hero h1{font-size:clamp(36px,10.5vw,46px)}}
 
-/* HEADER */
-header{
-  background:#fff;
-  border-bottom:1px solid var(--line);
-}
+    /* Light editorial silver palette */
+    body{background:#f7f9fa}
+    .site-header{color:var(--navy);background:rgba(252,253,254,.97);border-bottom:1px solid #d7e0e5}
+    .brand-copy span{color:#728793}
+    .brand-logo{box-shadow:0 0 0 1px #c4d0d7,0 4px 14px rgba(23,54,75,.1)}
+    .nav-group[open] summary,.nav-action:hover{color:var(--steel)}
+    .nav-group summary::after{color:var(--steel)}
+    .nav-cta{color:#fff!important;background:linear-gradient(135deg,#244a61,#5d7f94)}
+    .menu-button{color:var(--navy);border-color:#aebdc6}
+    .hero{color:var(--navy);background:linear-gradient(125deg,#fbfcfd 0%,#eef2f4 52%,#dce5ea 100%);border-bottom:1px solid #cad6dd}
+    .hero::before{border-color:rgba(49,87,109,.14);box-shadow:0 0 0 62px rgba(93,127,148,.045),0 0 0 124px rgba(93,127,148,.025)}
+    .eyebrow{color:var(--steel)}
+    .hero h1 em{color:#718b9b}
+    .hero-text{color:#536b79}
+    .button{color:var(--navy);border-color:#9bafb9;background:rgba(255,255,255,.42)}
+    .button:hover{background:#fff}
+    .button-primary{color:#fff;background:linear-gradient(135deg,#23495f,#678597);border-color:#496c82}
+    .button-primary:hover{color:#fff;background:linear-gradient(135deg,#18394e,#4f7186);border-color:#365d74}
+    .cover{border:1px solid #d1dbe0;box-shadow:0 18px 48px rgba(40,67,82,.13)}
+    .facts{background:linear-gradient(90deg,#c8d3da,#edf1f3 50%,#c8d3da)}
+    .gateway{background:#f8fafb}
+    .gateway-card{background:#fff}
+    @media(max-width:900px){.primary-nav.open{color:#fff;background:var(--navy)}.primary-nav.open .nav-group summary::after{color:var(--silver)}}
 
-.header-inner{
-  min-height:64px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-}
+    /* Darker metallic navigation and information bands */
+    .site-header{color:#fff;background:linear-gradient(90deg,#294b60 0%,#476b80 50%,#294b60 100%);border-bottom-color:#203f52}
+    .brand-copy span{color:rgba(235,242,246,.74)}
+    .nav-group[open] summary,.nav-action:hover{color:#dbe5ea}
+    .nav-group summary::after{color:#dbe5ea}
+    .nav-cta{color:var(--navy)!important;background:linear-gradient(135deg,#f1f4f6,#bcc9d1)}
+    .menu-button{color:#fff;border-color:rgba(255,255,255,.48)}
+    .facts{background:linear-gradient(90deg,#91a5b2 0%,#c8d3d9 50%,#91a5b2 100%);border-top:1px solid #7f96a4;border-bottom:1px solid #8da1ad}
+    footer{background:#142f42}
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-width:0;
-}
+    /* Stronger text contrast */
+    .brand-copy strong{font-weight:700;color:#fff}
+    .brand-copy span{color:rgba(255,255,255,.9);font-weight:700}
+    .primary-nav{font-weight:850}
+    .nav-action,.nav-group summary{color:#fff}
+    .eyebrow{color:#496d82}
+    .hero-text{color:#3e5969}
+    .fact strong{color:#102f43;font-weight:600}
+    .fact span{color:#294f66;font-weight:950}
+    .gateway-copy>p,.gateway-card span{color:#506a79}
 
-.logo-mark{
-  width:42px;
-  height:42px;
-  border:1px solid var(--metal-dark);
-  display:grid;
-  place-items:center;
-  font:700 11px Georgia,serif;
-  color:var(--metal-deep);
-  background:
-    linear-gradient(135deg,#edf2f5 0%,#aebec9 42%,#f8fbfc 63%,#7890a1 100%);
-}
-
-.brand-text strong{
-  display:block;
-  font-size:15px;
-  letter-spacing:-.01em;
-}
-
-.brand-text span{
-  display:block;
-  margin-top:2px;
-  color:var(--muted);
-  font-size:10.5px;
-}
-
-nav{
-  display:flex;
-  align-items:center;
-  gap:21px;
-  font-size:12px;
-}
-
-nav a:hover{
-  color:var(--metal-dark);
-}
-
-.submit-link{
-  padding:9px 13px;
-  border-radius:6px;
-  background:var(--metal-deep);
-  color:#fff;
-  font-weight:700;
-}
-
-/* HERO */
-.hero{
-  background:
-    radial-gradient(circle at 86% 28%,rgba(94,127,152,.13),transparent 22%),
-    linear-gradient(120deg,#fbfcfd 0%,#f5f8fa 58%,#edf3f6 100%);
-  border-bottom:1px solid var(--line);
-}
-
-.hero-inner{
-  padding:42px 0 38px;
-}
-
-.kicker{
-  color:var(--metal-dark);
-  font-weight:800;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-
-.hero h1{
-  margin:13px 0 18px;
-  max-width:780px;
-  font:500 clamp(48px,6vw,78px)/.96 Georgia,"Times New Roman",serif;
-  letter-spacing:-.035em;
-  color:var(--metal-deep);
-}
-
-.hero p{
-  max-width:720px;
-  margin:0;
-  color:var(--muted);
-  font-size:17px;
-  line-height:1.55;
-}
-
-.hero-actions{
-  margin-top:23px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:11px 16px;
-  border:1px solid var(--metal-dark);
-  background:#fff;
-  color:var(--metal-deep);
-  font-size:12px;
-  font-weight:800;
-}
-
-.btn.primary{
-  background:var(--metal-deep);
-  color:#fff;
-}
-
-/* INFO STRIP */
-.info-strip{
-  background:
-    linear-gradient(90deg,var(--metal-deep),var(--metal-dark) 48%,var(--metal) 100%);
-  color:#fff;
-}
-
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-}
-
-.info-item{
-  padding:15px 20px;
-  border-left:1px solid rgba(255,255,255,.16);
-}
-
-.info-item:last-child{
-  border-right:1px solid rgba(255,255,255,.16);
-}
-
-.info-item strong{
-  display:block;
-  font-size:12.5px;
-}
-
-.info-item span{
-  display:block;
-  margin-top:3px;
-  color:#d8e3ea;
-  font-size:10.8px;
-}
-
-/* MAIN */
-.main{
-  padding:28px 0 30px;
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:24px;
-}
-
-.about h2,
-.glance h2{
-  margin:0 0 12px;
-  font:500 32px/1.1 Georgia,serif;
-  color:var(--metal-deep);
-}
-
-.about p{
-  margin:0 0 12px;
-  max-width:720px;
-  color:var(--muted);
-  line-height:1.65;
-  font-size:13.5px;
-}
-
-.glance{
-  border:1px solid var(--line);
-  background:#fff;
-  padding:20px 22px;
-}
-
-.glance .label{
-  color:var(--metal-dark);
-  font-size:10px;
-  font-weight:800;
-  letter-spacing:.11em;
-  text-transform:uppercase;
-  margin-bottom:6px;
-}
-
-.glance h2{
-  font-size:24px;
-  margin-bottom:8px;
-}
-
-.quick-link{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px 0;
-  border-top:1px solid var(--line);
-  font-size:12.5px;
-}
-
-.quick-link span:last-child{
-  color:var(--metal);
-}
-
-/* FOOTER */
-footer{
-  border-top:1px solid var(--line);
-  background:#fff;
-}
-
-.footer-inner{
-  min-height:54px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  color:var(--muted);
-  font-size:10.5px;
-}
-
-.footer-links{
-  display:flex;
-  gap:14px;
-}
-
-/* RESPONSIVE */
-@media(max-width:800px){
-  nav a:not(.submit-link){display:none}
-  .brand-text span{display:none}
-  .main{grid-template-columns:1fr}
-  .info-grid{grid-template-columns:1fr}
-  .info-item{
-    border-left:0;
-    border-right:0!important;
-    border-top:1px solid rgba(255,255,255,.14);
-  }
-  .hero-inner{padding:34px 0 30px}
-  .hero h1{font-size:47px}
-}
-
-@media(max-width:520px){
-  .shell{width:min(100% - 26px,1180px)}
-  .footer-inner{
-    align-items:flex-start;
-    flex-direction:column;
-    padding:14px 0;
-  }
-}
-</style>
+    /* Editorial grid concept */
+    body{background:#e8eef4}
+    .site-header{background:#e8eef4;border:0;color:#172431}
+    .header-inner{min-height:72px}
+    .brand-logo{width:42px;border-radius:8px;box-shadow:none}
+    .brand-copy{display:none}
+    .brand::after{content:"IJEER";font-size:15px;font-weight:900;letter-spacing:.12em;color:#172431}
+    .primary-nav{gap:8px}
+    .nav-group summary,.nav-action{padding:13px 16px;color:#172431!important;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.82);border-radius:14px;font-weight:700}
+    .nav-group summary::after{color:#5d7587}
+    .nav-group[open] summary,.nav-group summary:hover,.nav-action:hover{background:#fff;color:#172431!important}
+    .nav-action[data-panel="editorial-panel"],.nav-cta{display:none}
+    .dropdown{top:53px;border-radius:14px}
+    .hero,.facts,.gateway{display:none}
+    .concept-grid{min-height:650px;padding:14px 0 24px;display:grid;grid-template-columns:1.48fr 1fr;gap:18px}
+    .concept-hero,.concept-card{border-radius:28px}
+    .concept-hero{padding:52px 58px 38px;display:flex;flex-direction:column;background:#fff}
+    .concept-label{margin:0 0 20px;color:#587ea0;font-size:10px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .concept-hero h1{max-width:650px;margin:0;color:#17212c;font:400 clamp(48px,5.8vw,78px)/.94 var(--serif);letter-spacing:-.055em}
+    .concept-hero>p:not(.concept-label){max-width:620px;margin:24px 0 0;color:#587083;font-size:14px;line-height:1.65}
+    .concept-bottom{margin-top:auto;display:flex;align-items:end;justify-content:space-between;gap:28px}
+    .concept-stats{display:flex;gap:28px}.concept-stat strong{display:block;color:#172431;font-size:10px;text-transform:uppercase}.concept-stat span{display:block;margin-top:5px;color:#687f8f;font-size:9px}
+    .concept-submit{min-height:44px;padding:0 18px;border:0;color:#fff;background:#172431;border-radius:13px;font-size:10px;font-weight:850;cursor:pointer}.concept-submit:hover{background:#304657}
+    .concept-rail{display:grid;grid-template-rows:1fr 1fr;gap:18px}
+    .concept-card{padding:34px;display:flex;flex-direction:column}
+    .issue-card{color:#172431;background:#b7cce0}.issue-card .concept-label{color:#50799b}.issue-card h2,.quick-card h2{margin:0;font:400 clamp(30px,3vw,40px)/1 var(--serif)}.issue-card p{max-width:430px;margin:17px 0 0;color:#46677f;font-size:12px;line-height:1.55}.card-link{margin-top:auto;width:max-content;padding:0;border:0;color:inherit;background:transparent;font-size:10px;font-weight:900;cursor:pointer}
+    .quick-card{color:#fff;background:#172431}.quick-card .concept-label{color:#9fc0dc}.quick-links{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px}.quick-links button{min-height:42px;padding:0 14px;border:0;color:#fff;background:#2a3945;border-radius:12px;text-align:left;font-size:10px;font-weight:750;cursor:pointer}.quick-links button:hover{background:#3b4e5d}
+    footer{background:#172431}
+    @media(max-width:900px){.primary-nav.open{top:72px}.primary-nav.open .nav-group summary,.primary-nav.open .nav-action{color:#fff!important;background:transparent;border:0;border-radius:0}.concept-grid{grid-template-columns:1fr;min-height:auto}.concept-hero{min-height:570px}.concept-rail{grid-template-columns:1fr 1fr;grid-template-rows:none}.concept-card{min-height:280px}}
+    @media(max-width:620px){.brand::after{font-size:13px}.concept-grid{padding-top:8px}.concept-hero{min-height:520px;padding:34px 26px 26px}.concept-hero h1{font-size:clamp(42px,14vw,58px)}.concept-bottom{align-items:stretch;flex-direction:column}.concept-stats{width:100%;justify-content:space-between;gap:12px}.concept-submit{width:100%}.concept-rail{grid-template-columns:1fr}.concept-card{min-height:270px;padding:27px}.quick-links{grid-template-columns:1fr}}
+  </style>
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="IJEER home"><img class="brand-logo" src="assets/logo_ijeer.png" alt="IJEER logo"><span class="brand-copy"><strong>International Journal of Educational Excellence and Research</strong><span>Independent · Open access · Peer reviewed</span></span></a>
+      <nav class="primary-nav" id="site-nav" aria-label="Primary navigation">
+        <details class="nav-group"><summary>About</summary><div class="dropdown"><button data-panel="about-panel">About IJEER</button><button data-panel="scope-panel">Aims &amp; Scope</button><button data-panel="editorial-panel">Editorial Board</button></div></details>
+        <details class="nav-group"><summary>Authors</summary><div class="dropdown"><button data-panel="authors-panel">Author Guidelines</button><button data-panel="submit-panel">Submit Now</button><button data-panel="reviewers-panel">For Reviewers</button></div></details>
+        <details class="nav-group"><summary>Issues</summary><div class="dropdown"><button data-panel="issue-panel">Current Issue</button><button data-panel="archive-panel">Archive &amp; Indexing</button><button data-panel="access-panel">Open Access</button></div></details>
+        <button class="nav-action" data-panel="editorial-panel">Editorial</button>
+        <button class="nav-action" data-panel="contact-panel">Contact</button>
+        <button class="nav-action nav-cta" data-panel="submit-panel">Submit Research</button>
+      </nav>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false"><span></span></button>
+    </div>
+  </header>
 
-<header>
-  <div class="shell header-inner">
-    <a href="#" class="brand">
-      <div class="logo-mark">IJEER</div>
-      <div class="brand-text">
-        <strong>International Journal of Educational Excellence and Research</strong>
-        <span>Open-access scholarly journal</span>
+  <main id="top">
+    <section class="container concept-grid" aria-label="IJEER overview">
+      <article class="concept-hero">
+        <p class="concept-label">International Journal of Educational Excellence and Research</p>
+        <h1>Research with purpose.<br>Presented with clarity.</h1>
+        <p>IJEER is an international, open-access journal for rigorous work in education, teaching, learning, policy, assessment, and innovation.</p>
+        <div class="concept-bottom">
+          <div class="concept-stats">
+            <div class="concept-stat"><strong>Open access</strong><span>Free to read</span></div>
+            <div class="concept-stat"><strong>Double-blind</strong><span>Peer reviewed</span></div>
+            <div class="concept-stat"><strong>2× year</strong><span>June · December</span></div>
+          </div>
+          <button class="concept-submit" data-panel="submit-panel">Submit manuscript</button>
+        </div>
+      </article>
+      <div class="concept-rail">
+        <article class="concept-card issue-card">
+          <p class="concept-label">Forthcoming</p>
+          <h2>Volume 1 · Issue 1</h2>
+          <p>The inaugural issue is in preparation. New submissions are currently welcome.</p>
+          <button class="card-link" data-panel="issue-panel">Open issue&nbsp; →</button>
+        </article>
+        <article class="concept-card quick-card">
+          <p class="concept-label">Quick access</p>
+          <h2>Journal information</h2>
+          <div class="quick-links">
+            <button data-panel="scope-panel">Aims &amp; Scope</button>
+            <button data-panel="authors-panel">Guidelines</button>
+            <button data-panel="editorial-panel">Editorial Board</button>
+            <button data-panel="ethics-panel">Policies</button>
+          </div>
+        </article>
       </div>
-    </a>
+    </section>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div><p class="eyebrow">A journal for meaningful inquiry</p><h1>Education, examined with <em>purpose.</em></h1><p class="hero-text">IJEER publishes rigorous, accessible scholarship connecting educational theory, policy, teaching, learning, and practice.</p><div class="hero-actions"><button class="button button-primary" data-panel="submit-panel">Submit a manuscript&nbsp; →</button><button class="button" data-panel="scope-panel">Explore the journal</button></div></div>
+        <aside class="cover" aria-label="IJEER journal cover"><img src="assets/logo_ijeer.png" alt="International Journal of Educational Excellence and Research cover"><div class="cover-meta"><span><strong>Frequency</strong>June &amp; December</span><span><strong>Access</strong>Open to everyone</span></div></aside>
+      </div>
+    </section>
 
-    <nav>
-      <a href="#">About</a>
-      <a href="#">Scope</a>
-      <a href="#">Current Issue</a>
-      <a href="#">For Authors</a>
-      <a href="#">Editorial</a>
-      <a href="#">Contact</a>
-      <a href="#" class="submit-link">Submit</a>
-    </nav>
-  </div>
-</header>
+    <section class="facts" aria-label="Journal characteristics"><div class="container facts-grid"><div class="fact"><strong>Open access</strong><span>No author or reader fees</span></div><div class="fact"><strong>Double-blind</strong><span>Independent peer review</span></div><div class="fact"><strong>International</strong><span>Inclusive global perspectives</span></div><div class="fact"><strong>Biannual</strong><span>June &amp; December</span></div></div></section>
 
-<section class="hero">
-  <div class="shell hero-inner">
-    <div class="kicker">Open Access · Double-Blind Peer Review · Biannual</div>
+    <section class="gateway"><div class="container gateway-grid"><div><p class="section-label">Explore IJEER</p><h2>Everything authors and readers need.</h2></div><div class="gateway-copy"><p>Detailed journal information is organized into focused panels, keeping the homepage clear without hiding essential guidance.</p><div class="gateway-links"><button class="gateway-card" data-panel="scope-panel"><strong>Aims &amp; Scope</strong><span>Topics, article types, and journal values</span></button><button class="gateway-card" data-panel="authors-panel"><strong>Author Guidelines</strong><span>Preparation, formatting, and files</span></button><button class="gateway-card" data-panel="contact-panel"><strong>Editorial Office</strong><span>Contact and submission support</span></button></div></div></div></section>
+  </main>
 
-    <h1>Research that improves education.</h1>
+  <footer><div class="container footer-main"><div class="footer-intro"><a class="footer-brand" href="#top"><img class="brand-logo" src="assets/logo_ijeer.png" alt=""><span>International Journal of Educational<br>Excellence and Research</span></a><p>An independent, international platform for rigorous and accessible research that advances education.</p></div><div class="footer-column"><h3>Journal</h3><button data-panel="about-panel">About</button><button data-panel="scope-panel">Aims &amp; Scope</button><button data-panel="issue-panel">Current Issue</button><button data-panel="editorial-panel">Editorial Board</button></div><div class="footer-column"><h3>Authors</h3><button data-panel="authors-panel">Author Guidelines</button><button data-panel="review-panel">Peer Review</button><button data-panel="submit-panel">Submit</button></div><div class="footer-column"><h3>Policies</h3><button data-panel="ethics-panel">Publication Ethics</button><button data-panel="access-panel">Open Access</button><button data-panel="contact-panel">Contact</button></div></div><div class="container footer-bottom"><span>© <span id="year">2026</span> IJEER. All rights reserved.</span><span>Advancing education through open scholarship.</span></div></footer>
 
-    <p>
-      IJEER publishes rigorous, relevant, and accessible research that advances
-      educational theory, policy, teaching, learning, and practice.
-    </p>
+  <dialog id="about-panel"><div class="panel-head"><div><p class="panel-kicker">The journal</p><h2>About IJEER</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><p><strong>International Journal of Educational Excellence and Research (IJEER)</strong> is an international, peer-reviewed, open-access journal dedicated to strengthening high-quality scholarship on educational excellence and evidence-informed educational improvement.</p><p>The journal welcomes innovative empirical studies, rigorous reviews, theoretical contributions, and policy or practice analyses addressing contemporary challenges in teaching, learning, leadership, assessment, and educational systems.</p><p>IJEER values interdisciplinary dialogue and encourages contributions that broaden global perspectives, especially research emerging from underrepresented regions and contexts.</p><div class="info-grid"><div class="info-box"><strong>Published twice yearly</strong>June and December</div><div class="info-box"><strong>Primary language</strong>English</div></div></div></dialog>
 
-    <div class="hero-actions">
-      <a href="#" class="btn primary">Submit a Manuscript</a>
-      <a href="#" class="btn">Read Current Issue</a>
-      <a href="#" class="btn">Author Guidelines</a>
-    </div>
-  </div>
-</section>
+  <dialog id="scope-panel"><div class="panel-head"><div><p class="panel-kicker">The journal</p><h2>Aims &amp; Scope</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><p>IJEER publishes scholarly work that advances understanding of what educational excellence means, how it can be measured, and how it can be achieved across different systems, cultures, and learning environments.</p><h3>Core aims</h3><ul><li>Strengthen evidence-informed practice and policy in education.</li><li>Promote innovative and responsible research that improves learning and teaching.</li><li>Support inclusive scholarship reflecting diverse educational contexts.</li><li>Connect research with real-world improvement through interdisciplinary dialogue.</li></ul><h3>Scope</h3><div class="info-grid"><div class="info-box"><strong>Learning &amp; assessment</strong>Teaching, learning sciences, curriculum, evaluation, and psychometrics.</div><div class="info-box"><strong>Systems &amp; leadership</strong>Governance, policy, leadership, and improvement systems.</div><div class="info-box"><strong>Equity &amp; wellbeing</strong>Inclusion, culturally responsive education, and wellbeing.</div><div class="info-box"><strong>Technology &amp; development</strong>Digital learning, AI-supported education, and teacher education.</div></div><h3>Article types</h3><p>Empirical research; systematic, scoping, and meta-analytic reviews; conceptual papers; policy and practice briefs; methods notes; short reports; book reviews; and scholarly commentary.</p></div></dialog>
 
-<section class="info-strip">
-  <div class="shell info-grid">
-    <div class="info-item">
-      <strong>Open Access</strong>
-      <span>Free to read and currently free to publish.</span>
-    </div>
-    <div class="info-item">
-      <strong>Peer Review</strong>
-      <span>All manuscripts undergo double-blind peer review.</span>
-    </div>
-    <div class="info-item">
-      <strong>Publication</strong>
-      <span>Published twice a year: June and December.</span>
-    </div>
-  </div>
-</section>
+  <dialog id="authors-panel"><div class="panel-head"><div><p class="panel-kicker">For authors</p><h2>Author Guidelines</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><h3>Before you submit</h3><p>Submissions must be original, not under review elsewhere, methodologically sound, ethically approved where required, and aligned with the journal’s aims and scope. References and style should follow <strong>APA 7</strong>.</p><h3>Word-count guidance</h3><ul><li><strong>Research article:</strong> 6,000–9,000 words</li><li><strong>Review or meta-analysis:</strong> 6,000–10,000 words</li><li><strong>Theoretical or conceptual:</strong> 5,000–8,000 words</li><li><strong>Policy or practice brief:</strong> 3,000–5,000 words</li><li><strong>Short report or methods note:</strong> 2,000–3,500 words</li><li><strong>Book or policy review:</strong> 1,000–2,000 words</li></ul><h3>Required submission package</h3><ol><li>Anonymous manuscript without author-identifying information.</li><li>Title page with names, affiliations, ORCIDs, and corresponding-author details.</li><li>Funding, conflicts of interest, ethics, consent, and data-availability declarations.</li><li>Clearly labelled figures and tables; supplementary files where relevant.</li></ol><h3>Structured abstract</h3><p>A 150–250 word abstract covering background, purpose, design or context, data or measures, analytic approach, results, and implications is strongly encouraged.</p></div></dialog>
 
-<main class="shell main">
-  <section class="about">
-    <h2>About IJEER</h2>
-    <p>
-      IJEER is an international scholarly journal for high-quality research across
-      educational contexts. We welcome empirical studies, systematic reviews,
-      conceptual work, methodological contributions, and research-informed perspectives.
-    </p>
-    <p>
-      The journal prioritizes methodological clarity, ethical research practice,
-      readable reporting, and contributions with practical or theoretical value.
-    </p>
-  </section>
+  <dialog id="submit-panel"><div class="panel-head"><div><p class="panel-kicker">For authors</p><h2>Submit Research</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><div class="contact-card"><strong>Use the secure online submission portal.</strong><br>Upload your manuscript package and receive an automatic reference number.</div><p><a class="button button-primary" href="https://submit.ijeer.org/">Open online submission&nbsp; →</a></p><h3>Required files</h3><ul><li>Anonymous manuscript</li><li>Title page</li><li>Required declarations</li><li>Supplementary files, if applicable</li><li>Complete metadata: title, abstract, keywords, authors, and affiliations</li></ul><h3>Pre-submission checklist</h3><p>Confirm that the manuscript is anonymous, follows APA 7, clearly labels tables and figures, and includes a data-availability statement. IJEER does not charge submission or publication fees.</p><h3>Email backup</h3><p>If the portal is unavailable, contact <a href="mailto:editor@ijeer.org">editor@ijeer.org</a>.</p></div></dialog>
 
-  <aside class="glance">
-    <div class="label">Journal</div>
-    <h2>At a glance</h2>
+  <dialog id="reviewers-panel"><div class="panel-head"><div><p class="panel-kicker">For reviewers</p><h2>Review for IJEER</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><p>Reviewers provide objective, constructive, and confidential evaluations supporting the journal’s academic quality. Reviews should consider scope fit, originality, methodological quality, ethical integrity, clarity, and contribution.</p><p>Researchers interested in reviewing may contact the editorial office with their areas of expertise, affiliation, and ORCID.</p><a class="button button-primary" href="mailto:editor@ijeer.org?subject=IJEER%20Reviewer%20Application">Become a reviewer</a></div></dialog>
 
-    <a class="quick-link" href="#"><span>Aims & Scope</span><span>→</span></a>
-    <a class="quick-link" href="#"><span>Author Guidelines</span><span>→</span></a>
-    <a class="quick-link" href="#"><span>Editorial Policies</span><span>→</span></a>
-    <a class="quick-link" href="#"><span>Editorial Board</span><span>→</span></a>
-    <a class="quick-link" href="#"><span>Archive</span><span>→</span></a>
-  </aside>
-</main>
+  <dialog id="access-panel"><div class="panel-head"><div><p class="panel-kicker">Policies</p><h2>Open Access</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><p>IJEER is fully open access. Journal content is freely available to readers, and the journal currently charges neither submission nor publication fees.</p><p>Copyright, licensing, reuse, and author-rights details will be stated with each published article and in the journal’s complete publication policy.</p></div></dialog>
 
-<footer>
-  <div class="shell footer-inner">
-    <div>© 2026 IJEER · International Journal of Educational Excellence and Research</div>
-    <div class="footer-links">
-      <a href="#">Peer Review</a>
-      <a href="#">Ethics</a>
-      <a href="#">Privacy</a>
-    </div>
-  </div>
-</footer>
+  <dialog id="review-panel"><div class="panel-head"><div><p class="panel-kicker">Policies</p><h2>Peer Review</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><p>All suitable manuscripts undergo a rigorous double-blind peer-review process designed to support scholarly quality, impartiality, confidentiality, and fair editorial decisions.</p><h3>Review path</h3><ol><li>Editorial screening for scope, completeness, and basic quality.</li><li>Independent double-blind evaluation.</li><li>Editorial decision and author revision where required.</li><li>Final checks before publication.</li></ol></div></dialog>
 
+  <dialog id="ethics-panel"><div class="panel-head"><div><p class="panel-kicker">Policies</p><h2>Publication Ethics</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><p>IJEER expects responsible authorship, transparent reporting, appropriate ethical approval and consent, accurate declarations, and disclosure of conflicts of interest and funding.</p><p>Editors oversee scope fit, review quality, ethical compliance, and decision-making. Reviewers must provide objective and confidential assessments. Allegations or concerns are considered carefully and fairly.</p></div></dialog>
+
+  <dialog id="editorial-panel"><div class="panel-head"><div><p class="panel-kicker">People</p><h2>Editorial Board</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><p>IJEER is managed by an editorial team committed to fair, rigorous, and timely scholarly publishing.</p><h3>Editor-in-Chief</h3><div class="contact-card"><strong>Assoc. Prof. Dr. Ilknur Yuksel</strong><br>Osmangazi University<br>ORCID: 0000-0003-1145-6495</div><h3>Editorial Board</h3><p>Additional editorial board information is being updated.</p><h3>Responsibilities</h3><ul><li>Editors oversee scope fit, review quality, ethics, and decisions.</li><li>Reviewers provide objective, constructive, and confidential evaluations.</li><li>The Editorial Board supports academic quality and outreach.</li></ul></div></dialog>
+
+  <dialog id="issue-panel"><div class="panel-head"><div><p class="panel-kicker">Journal</p><h2>Current Issue</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><div class="contact-card"><strong>The first issue is in preparation.</strong><br>Peer-reviewed articles will appear here with abstracts, citation details, DOI information, and full-text access.</div><h3>Publication schedule</h3><p>IJEER is published twice a year, in June and December.</p></div></dialog>
+
+  <dialog id="archive-panel"><div class="panel-head"><div><p class="panel-kicker">Journal</p><h2>Archive &amp; Indexing</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><p>The issue archive will grow as volumes are published. Readers will be able to browse by year, volume, issue, topic, author, and DOI.</p><p>Verified indexing and abstracting information will be added here as it becomes available.</p></div></dialog>
+
+  <dialog id="contact-panel"><div class="panel-head"><div><p class="panel-kicker">Editorial office</p><h2>Contact</h2></div><button class="close-button" aria-label="Close">×</button></div><div class="panel-body"><p>For editorial inquiries, submissions, reviewer participation, or general questions, contact the IJEER Editorial Office.</p><div class="contact-card"><strong>Email</strong><br><a href="mailto:editor@ijeer.org">editor@ijeer.org</a><br><br><strong>Website</strong><br><a href="https://www.ijeer.org">www.ijeer.org</a></div><h3>Submission-related questions</h3><p>Please include the manuscript title, manuscript ID if available, and a short summary of your request.</p></div></dialog>
+
+  <script>
+    const menuButton=document.querySelector('.menu-button');
+    const navigation=document.querySelector('.primary-nav');
+    const closeMenu=()=>{navigation.classList.remove('open');menuButton.setAttribute('aria-expanded','false')};
+    menuButton.addEventListener('click',()=>{const open=!navigation.classList.contains('open');navigation.classList.toggle('open',open);menuButton.setAttribute('aria-expanded',String(open))});
+    document.querySelectorAll('.nav-group').forEach(group=>group.addEventListener('toggle',()=>{if(group.open){document.querySelectorAll('.nav-group[open]').forEach(item=>{if(item!==group)item.removeAttribute('open')})}}));
+    document.querySelectorAll('[data-panel]').forEach(button=>button.addEventListener('click',()=>{const panel=document.getElementById(button.dataset.panel);document.querySelectorAll('.nav-group[open]').forEach(item=>item.removeAttribute('open'));closeMenu();if(panel){panel.showModal();document.body.classList.add('modal-open')}}));
+    document.querySelectorAll('dialog').forEach(panel=>{panel.querySelector('.close-button').addEventListener('click',()=>panel.close());panel.addEventListener('click',event=>{if(event.target===panel)panel.close()});panel.addEventListener('close',()=>document.body.classList.remove('modal-open'))});
+    document.addEventListener('click',event=>{if(!event.target.closest('.nav-group'))document.querySelectorAll('.nav-group[open]').forEach(item=>item.removeAttribute('open'))});
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
 </body>
 </html>
